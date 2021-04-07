@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+<body>
+    <center>
+   <h1 style="margin-bottom: 4rem;">ChessBoard</h1>
+   <form action="/custom" method="POST">
+    <label for="n_queen" class="queen q1">Enter Number of Queens:</label>
+    <input type="number" min=4 name="n_queen" id="n_queen">
+    <input type="submit" class="queen q2" value="Show the positions">
+    </form>
+    <br><br>
+    <table  style="border-collapse: collapse;" border="1">
+    {%for i in slt%}
+    <tr>
+        {% if (loop.index%2 == 0.0) %}
+            {%for j in i%}
+                {%if (j == 1.0)%}
+                {% if (loop.index%2 == 0.0) %}
+                <td style="width: 100px; height: 100px; background: white;justify-content: center;text-align: center;"><i class="fas fa-chess-queen" style="color: skyblue; font-size: xx-large;"></i></td>
+                {% else %}
+                <td style="width: 100px; height: 100px; background: black;justify-content: center;text-align: center;"><i class="fas fa-chess-queen" style="color: skyblue; font-size: xx-large;"></i></td>
+                {% endif %}
+                {%else%}
+                {% if (loop.index%2 == 0.0) %}
+                <td style="width: 100px; height: 100px;background: white;justify-content: center;text-align: center;"></td>
+                {% else %}
+                <td style="width: 100px; height: 100px;background: black;justify-content: center;text-align: center;"></td>
+                {% endif %}
+                {%endif%}
+            {%endfor%}
+        {% else %}
+            {%for j in i%}
+                {%if (j == 1.0)%}
+                {% if (loop.index%2 == 0.0) %}
+                <td style="width: 100px; height: 100px;background: black;justify-content: center;text-align: center;"><i class="fas fa-chess-queen" style="color: skyblue; font-size: xx-large;"></i></td>
+                {% else %}
+                <td style="width: 100px; height: 100px; background: white;justify-content: center;text-align: center;"><i class="fas fa-chess-queen" style="color: skyblue; font-size: xx-large;"></i></td>
+                {% endif %}
+                {%else%}
+                {% if (loop.index%2 == 0.0) %}
+                <td style="width: 100px; height: 100px;background: black;justify-content: center;text-align: center;"></td>
+                {% else %}
+                <td style="width: 100px; height: 100px;background: white;justify-content: center;text-align: center;"></td>
+                {% endif %}
+                {%endif%}
+            {%endfor%}
+        {%endif%}       
+    </tr>
+    {%endfor%}
+</table>
+
+</center>    
+</body>
+</html>
