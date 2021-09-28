@@ -30,7 +30,7 @@ def main():
                     # Check if this queen shares a row or column
                     if q_col == col or q_row == row:
                         return True
-                    # Check if this queen shares a diagnol
+                    # Check if this queen shares a diagonal
                     elif abs(row - q_row) == abs(col - q_col):
                         return True
             else:
@@ -40,7 +40,7 @@ def main():
             # Check if this queen shares a row or column
             if q_col == col or q_row == row:
                 return True
-            # Check if this queen shares a diagnol
+            # Check if this queen shares a diagonal
             elif abs(row - q_row) == abs(col - q_col):
                 return True
             else:
